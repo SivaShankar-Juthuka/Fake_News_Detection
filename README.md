@@ -2,10 +2,10 @@
 This project mainly describes about how to detect the fake news using machine learning algorithms. Fake news's simple meaning is to incorporate information that leads people to the wrong path. Nowadays fake news spreading like water and people share this information without verifying it.So this project recommends the people to detect the fake news using machine learning algorithms Logistic Regression which is commonly used for binary classification problems.The output of logistic regression is a probability score that predicts the likelihood of the binary outcome for each data point.
 
 ## Tools
-- [ ] Python 3.6 or higher
-- [ ] Anaconda  
-- [ ] Jupyter
-- [ ] Spider
+- [ ] Python 3.6 or higher versioned IDLE   or
+- [ ] VsCode Editor         or
+- [ ] Anaconda  - Jupyter   or
+- [ ] Anaconda  - Spyder    or
 
 ## Modules
 - [ ] NumPy
