@@ -32,22 +32,22 @@ import nltk
 nltk.download('stopwords')
 
 # Printing the list of stopwords in English
-print(stopwords.words('english'))
+#print(stopwords.words('english'))
 
 # Reading dataset from the CSV file and loading it into a pandas DataFrame
 news_dataset = pd.read_csv(r"C:/Users/Siva Shankar/Desktop/Sample/train.csv")
 
 # Printing the description of the dataset
-print("\n\n Description Of the DataSet :\n",news_dataset.describe())
+#print("\n\n Description Of the DataSet :\n",news_dataset.describe())
 
 # Printing the dimensions of the dataset
-print("\n\nDimenstion Of the DataSet :",news_dataset.shape)
+#print("\n\nDimenstion Of the DataSet :",news_dataset.shape)
 
 # Printing the first 5 rows of the dataframe
-print("\n\n First 5 rows  in the SataSet :\n",news_dataset.head())
+#print("\n\n First 5 rows  in the SataSet :\n",news_dataset.head())
 
 # Counting the number of missing values in the dataset
-print("\n\n Count Of Null Values in the DataSet :\n",news_dataset.isnull().sum())
+#print("\n\n Count Of Null Values in the DataSet :\n",news_dataset.isnull().sum())
 
 # Replacing the null values with an empty string
 news_dataset = news_dataset.fillna('')
@@ -60,9 +60,9 @@ X = news_dataset.drop(columns='label', axis=1)
 Y = news_dataset['label']
 
 # Printing dataset without the label columns
-print("\n\n Dataset without the labels columns :\n",X)
+#print("\n\n Dataset without the labels columns :\n",X)
 # Printing the labels
-print("\n\n Labels extracted to Y :\n", Y)
+#print("\n\n Labels extracted to Y :\n", Y)
 
 # Stemming
 # Stemming is the process of reducing a word to its root word
@@ -82,16 +82,16 @@ def stemming(content):
 news_dataset['content'] = news_dataset['content'].apply(stemming)
 
 # Printing the 'content' column after applying the stemming process
-print("\n\n New Column Content after applying stemming process :\n\n",news_dataset['content'])
+#print("\n\n New Column Content after applying stemming process :\n\n",news_dataset['content'])
 
 # Separating the data and label
 X = news_dataset['content'].values
 Y = news_dataset['label'].values
 
 # Printing dataset without the labels column after applying stemming
-print("\n\n Dataset without the labels column after applying stemming :\n",X)
+#print("\n\n Dataset without the labels column after applying stemming :\n",X)
 # Printing the labels after applying stemming
-print("\n\n Labels after applying stemming :\n ", Y)
+#print("\n\n Labels after applying stemming :\n ", Y)
       
 # Converting the textual data into numerical data because machine learning algorithms don't work on string or character data
 vectorizer = TfidfVectorizer()
@@ -101,7 +101,7 @@ vectorizer.fit(X)
 X = vectorizer.transform(X)
 
 # Printing the transformed data
-print("After Converting textual data to numerical data :\n\n",X)
+#print("After Converting textual data to numerical data :\n\n",X)
 
 # Splitting the data for training and testing and passing it to the algorithm to train and test the data
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, stratify=Y, random_state=2)
@@ -120,12 +120,12 @@ print('Accuracy score of the training data : ', training_data_accuracy*100)
 #Calculate the accuracy of the model on the testing dataset using the accuracy_score function from Scikit-Learn.
 X_test_prediction = model.predict(X_test)
 test_data_accuracy = accuracy_score(X_test_prediction, Y_test)
-print('Accuracy score of the test data : ', test_data_accuracy*100)
+print('Accuracy score of the testing data : ', test_data_accuracy*100)
 
 #Make a prediction on a new sample from the testing dataset using the trained model.
 X_new = X_test[7]
 prediction = model.predict(X_new)
-print(prediction)
+#print(prediction)
 
 #Print the prediction as "The news is Real" or "The news is Fake" depending on the predicted label.
 if (prediction[0]==0):
