@@ -25,12 +25,6 @@ print('Accuracy :', score)
 conf_mat = confusion_matrix(y_test, y_pred, labels = ['FAKE', 'REAL'])
 print(conf_mat)
 
-def fake_news_data(news):
-  input_data = [news]
-  vec_input_data = tfvect.transform(input_data)
-  prediction = classifier.predict(vec_input_data)
-  print(prediction)
-
 import pickle
 pickle.dump(classifier, open('model.pkl', 'wb'))
 loaded_model = pickle.load(open('model.pkl', 'rb'))
